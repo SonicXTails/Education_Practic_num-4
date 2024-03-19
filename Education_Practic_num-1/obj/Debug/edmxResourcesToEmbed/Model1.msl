@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Information_System_Of_MarketModelsContainer" CdmEntityContainer="Information_System_Of_MarketEntitiese">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModels.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Cost" ColumnName="Product_Cost" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModels.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
+          <ScalarProperty Name="Stock_Number_of_Products" ColumnName="Stock_Number_of_Products" />
+          <ScalarProperty Name="Stock_Date_of_Receipt" ColumnName="Stock_Date_of_Receipt" />
+          <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Information_System_Of_MarketModelContainer" CdmEntityContainer="Information_System_Of_MarketEntitie">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Cost" ColumnName="Product_Cost" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
+          <ScalarProperty Name="Stock_Number_of_Products" ColumnName="Stock_Number_of_Products" />
+          <ScalarProperty Name="Stock_Date_of_Receipt" ColumnName="Stock_Date_of_Receipt" />
+          <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockView">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModel.StockView">
+        <MappingFragment StoreEntitySet="StockView">
+          <ScalarProperty Name="Наименование_продукта" ColumnName="Наименование_продукта" />
+          <ScalarProperty Name="Дата_поступления" ColumnName="Дата_поступления" />
+          <ScalarProperty Name="Количество_продуктов" ColumnName="Количество_продуктов" />
+          <ScalarProperty Name="Идентификатор_склада" ColumnName="Идентификатор_склада" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Вид_Продукты">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModel.Вид_Продукты">
+        <MappingFragment StoreEntitySet="Вид_Продукты">
+          <ScalarProperty Name="Описание_продукта" ColumnName="Описание_продукта" />
+          <ScalarProperty Name="Стоимость_продукта" ColumnName="Стоимость_продукта" />
+          <ScalarProperty Name="Наименование_продукта" ColumnName="Наименование_продукта" />
+          <ScalarProperty Name="Идентификатор_продукта" ColumnName="Идентификатор_продукта" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Вид_Склад">
+      <EntityTypeMapping TypeName="Information_System_Of_MarketModel.Вид_Склад">
+        <MappingFragment StoreEntitySet="Вид_Склад">
+          <ScalarProperty Name="Идентификатор_продукта" ColumnName="Идентификатор_продукта" />
+          <ScalarProperty Name="Дата_поступления" ColumnName="Дата_поступления" />
+          <ScalarProperty Name="Количество_продуктов" ColumnName="Количество_продуктов" />
+          <ScalarProperty Name="Идентификатор_склада" ColumnName="Идентификатор_склада" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

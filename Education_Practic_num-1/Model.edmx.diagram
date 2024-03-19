@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08e5c63ca73f44b490cd4f0f60b6683a" Name="Diagram1">
+        <EntityTypeShape EntityType="Information_System_Of_MarketModel.Products" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Information_System_Of_MarketModel.Stock" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="Information_System_Of_MarketModel.FK__Stock__ID_Produc__17F790F9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Information_System_Of_MarketModel.StockView" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Information_System_Of_MarketModel.Вид_Продукты" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="Information_System_Of_MarketModel.Вид_Склад" Width="1.5" PointX="3" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

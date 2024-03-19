@@ -1,0 +1,65 @@
+﻿<Page x:Class="Education_Practic_num_1.DataSet_Third_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Education_Practic_num_1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DataSet_Third_Page">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button 
+            x:Name="Exit"
+            FontSize="20"
+            Content="Выход"
+            Grid.ColumnSpan="9" 
+            Background="#FF565656" 
+            Click="Exit_Click" 
+            BorderBrush="Yellow" 
+            FontFamily="Bahnschrift SemiBold Condensed" 
+            Foreground="Yellow"/>
+
+        <DataGrid
+            x:Name="BD_DataSet_Grid"
+            Grid.Row="1" Grid.RowSpan="8"
+            Grid.ColumnSpan="9"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False" Foreground="Yellow" BorderBrush="#FF86862B">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор полки склада" Binding="{Binding Stock_ID}" Foreground="Yellow" />
+                <DataGridTextColumn Header="Количество продуктов" Binding="{Binding Stock_Number_of_Products}" />
+                <DataGridTextColumn Header="Дата поступления" Binding="{Binding Stock_Date_of_Receipt}" />
+                <DataGridTextColumn Header="Идентификатор продукта склада" Binding="{Binding ID_Product}" />
+                <DataGridTextColumn Header="Идентификатор продукта продуктов" Binding="{Binding Product_ID}" />
+                <DataGridTextColumn Header="Наименование продукта" Binding="{Binding Product_Name}" />
+                <DataGridTextColumn Header="Стоимость продукта" Binding="{Binding Product_Cost}" />
+                <DataGridTextColumn Header="Описание продукта" Binding="{Binding Product_Description}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

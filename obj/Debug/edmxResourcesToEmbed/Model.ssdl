@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Information_System_Of_MarketModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Product_Cost" Type="real" Nullable="false" />
+    <Property Name="Product_Description" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Stock_ID" />
+    </Key>
+    <Property Name="Stock_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stock_Number_of_Products" Type="int" />
+    <Property Name="Stock_Date_of_Receipt" Type="datetime" Nullable="false" />
+    <Property Name="ID_Product" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Information_System_Of_Market.dbo.StockView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="StockView">
+    <Key>
+      <PropertyRef Name="Идентификатор_склада" />
+      <PropertyRef Name="Дата_поступления" />
+      <PropertyRef Name="Наименование_продукта" />
+    </Key>
+    <Property Name="Идентификатор_склада" Type="int" Nullable="false" />
+    <Property Name="Количество_продуктов" Type="int" />
+    <Property Name="Дата_поступления" Type="datetime" Nullable="false" />
+    <Property Name="Наименование_продукта" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Information_System_Of_Market.dbo.Вид_Продукты" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Вид_Продукты">
+    <Key>
+      <PropertyRef Name="Идентификатор_продукта" />
+      <PropertyRef Name="Наименование_продукта" />
+      <PropertyRef Name="Стоимость_продукта" />
+      <PropertyRef Name="Описание_продукта" />
+    </Key>
+    <Property Name="Идентификатор_продукта" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Наименование_продукта" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Стоимость_продукта" Type="real" Nullable="false" />
+    <Property Name="Описание_продукта" Type="text" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Information_System_Of_Market.dbo.Вид_Склад" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Вид_Склад">
+    <Key>
+      <PropertyRef Name="Идентификатор_склада" />
+      <PropertyRef Name="Дата_поступления" />
+      <PropertyRef Name="Идентификатор_продукта" />
+    </Key>
+    <Property Name="Идентификатор_склада" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Количество_продуктов" Type="int" />
+    <Property Name="Дата_поступления" Type="datetime" Nullable="false" />
+    <Property Name="Идентификатор_продукта" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Stock__ID_Produc__17F790F9">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ID_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Information_System_Of_MarketModelContainer">
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockView" EntityType="Self.StockView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StockView].[Идентификатор_склада] AS [Идентификатор_склада], 
+    [StockView].[Количество_продуктов] AS [Количество_продуктов], 
+    [StockView].[Дата_поступления] AS [Дата_поступления], 
+    [StockView].[Наименование_продукта] AS [Наименование_продукта]
+    FROM [dbo].[StockView] AS [StockView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Вид_Продукты" EntityType="Self.Вид_Продукты" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Вид_Продукты].[Идентификатор_продукта] AS [Идентификатор_продукта], 
+    [Вид_Продукты].[Наименование_продукта] AS [Наименование_продукта], 
+    [Вид_Продукты].[Стоимость_продукта] AS [Стоимость_продукта], 
+    [Вид_Продукты].[Описание_продукта] AS [Описание_продукта]
+    FROM [dbo].[Вид_Продукты] AS [Вид_Продукты]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Вид_Склад" EntityType="Self.Вид_Склад" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Вид_Склад].[Идентификатор_склада] AS [Идентификатор_склада], 
+    [Вид_Склад].[Количество_продуктов] AS [Количество_продуктов], 
+    [Вид_Склад].[Дата_поступления] AS [Дата_поступления], 
+    [Вид_Склад].[Идентификатор_продукта] AS [Идентификатор_продукта]
+    FROM [dbo].[Вид_Склад] AS [Вид_Склад]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Stock__ID_Produc__17F790F9" Association="Self.FK__Stock__ID_Produc__17F790F9">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

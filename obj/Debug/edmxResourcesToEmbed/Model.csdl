@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Information_System_Of_MarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Cost" Type="Single" Nullable="false" />
+    <Property Name="Product_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Stock" Relationship="Self.FK__Stock__ID_Produc__17F790F9" FromRole="Products" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Stock_ID" />
+    </Key>
+    <Property Name="Stock_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Stock_Number_of_Products" Type="Int32" />
+    <Property Name="Stock_Date_of_Receipt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID_Product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Stock__ID_Produc__17F790F9" FromRole="Stock" ToRole="Products" />
+  </EntityType>
+  <Association Name="FK__Stock__ID_Produc__17F790F9">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ID_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Information_System_Of_MarketEntitie" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" />
+    <AssociationSet Name="FK__Stock__ID_Produc__17F790F9" Association="Self.FK__Stock__ID_Produc__17F790F9">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <EntitySet Name="StockView" EntityType="Information_System_Of_MarketModel.StockView" />
+    <EntitySet Name="Вид_Продукты" EntityType="Information_System_Of_MarketModel.Вид_Продукты" />
+    <EntitySet Name="Вид_Склад" EntityType="Information_System_Of_MarketModel.Вид_Склад" />
+  </EntityContainer>
+  <EntityType Name="StockView">
+    <Key>
+      <PropertyRef Name="Идентификатор_склада" />
+      <PropertyRef Name="Дата_поступления" />
+      <PropertyRef Name="Наименование_продукта" />
+    </Key>
+    <Property Name="Идентификатор_склада" Type="Int32" Nullable="false" />
+    <Property Name="Количество_продуктов" Type="Int32" />
+    <Property Name="Дата_поступления" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Наименование_продукта" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Вид_Продукты">
+    <Key>
+      <PropertyRef Name="Идентификатор_продукта" />
+      <PropertyRef Name="Наименование_продукта" />
+      <PropertyRef Name="Стоимость_продукта" />
+      <PropertyRef Name="Описание_продукта" />
+    </Key>
+    <Property Name="Идентификатор_продукта" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Наименование_продукта" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Стоимость_продукта" Type="Single" Nullable="false" />
+    <Property Name="Описание_продукта" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Вид_Склад">
+    <Key>
+      <PropertyRef Name="Идентификатор_склада" />
+      <PropertyRef Name="Дата_поступления" />
+      <PropertyRef Name="Идентификатор_продукта" />
+    </Key>
+    <Property Name="Идентификатор_склада" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Количество_продуктов" Type="Int32" />
+    <Property Name="Дата_поступления" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Идентификатор_продукта" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

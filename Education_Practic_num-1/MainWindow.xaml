@@ -1,0 +1,92 @@
+﻿<Window x:Class="Education_Practic_num_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Education_Practic_num_1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Просмотр данных базы данных" Height="450" Width="800" Background="#FF2F2F2F">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="DataSet"
+                Grid.Row="1" Grid.ColumnSpan="2"
+                Grid.Column="1" Background="#FF565656"
+                Content="Посмотреть через DataSet"
+                FontSize="15" Click="DataSet_Click" BorderBrush="Red" Foreground="Black"/>
+
+        <Button x:Name="EF"
+                Grid.Row="1" Grid.ColumnSpan="2"
+                Grid.Column="4" Background="#FF565656"
+                Content="Посмотреть через EF"
+                FontSize="15" Click="EF_Click"
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton"
+                />
+
+        <Button
+            x:Name="DataSet_Third"
+            Grid.Column="1"
+            Grid.Row="3"
+            Grid.ColumnSpan="2" 
+            Background="#FF565656" 
+            BorderBrush="Yellow"
+            Content="Полная база данных DataSet"
+            FontSize="14" Click="DataSet_Third_Click"/>
+
+        <Button
+            x:Name="EF_Third"
+            Grid.Column="4"
+            Grid.Row="3"
+            Grid.ColumnSpan="2" 
+            Background="#FF565656" 
+            BorderBrush="Orange"
+            Content="Полная база данных EF"
+            FontSize="15" Click="EF_Third_Click"/>
+
+        <Button
+            x:Name="DataSet_Find"
+            Grid.Column="1"
+            Grid.Row="5"
+            Grid.ColumnSpan="2" 
+            Background="#FF565656" 
+            BorderBrush="Purple"
+            Content="Поиск DataSet"
+            FontSize="15" Click="DataSet_Find_Click"/>
+
+        <Button
+            x:Name="EF_Find"
+            Grid.Column="4"
+            Grid.Row="5"
+            Grid.ColumnSpan="2" 
+            Background="#FF565656" 
+            BorderBrush="Blue"
+            Content="Поиск EF"
+            FontSize="15" Click="EF_Find_Click"/>
+
+        <Frame x:Name="PageFrame"
+               Grid.ColumnSpan="7"
+               Grid.RowSpan="9"
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
